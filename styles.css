@@ -268,3 +268,15 @@ section.block { padding: 56px 0; }
 .frame-bar { gap: 10px; }
 .ask-caption { margin: 14px 0 0; font-size: 0.85rem; color: var(--muted-foreground); max-width: 46ch; }
 .ask-only .bubble-user { margin-left: 0; max-width: 100%; }
+
+.opt-limit .limit-hero { padding-bottom: 40px; }
+@media (min-width: 960px) {
+  .opt-limit .limit-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.9fr);
+    gap: 48px;
+    align-items: end;
+  }
+  .opt-limit .quiet-frame { margin-top: 0; max-width: none; }
+}
+.opt-limit h2 { max-width: 22ch; }
