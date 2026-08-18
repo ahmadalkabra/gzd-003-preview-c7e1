@@ -258,3 +258,13 @@ section.block { padding: 56px 0; }
 .opt .n { color: var(--primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .opt h2 { margin: 10px 0 8px; font-size: 1.35rem; }
 .opt p { margin: 0; color: var(--muted-foreground); }
+
+.unpub {
+  display: inline-flex; align-items: center;
+  padding: 4px 9px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-foreground);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.frame-bar { gap: 10px; }
+.ask-caption { margin: 14px 0 0; font-size: 0.85rem; color: var(--muted-foreground); max-width: 46ch; }
+.ask-only .bubble-user { margin-left: 0; max-width: 100%; }
