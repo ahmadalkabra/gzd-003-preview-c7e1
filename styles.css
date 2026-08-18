@@ -390,3 +390,52 @@ section.block { padding: 56px 0; }
 }
 .move-pic p { margin: 0; }
 .move-pic .receipt { margin-top: 8px; }
+
+.l1 { text-decoration: none; color: inherit; }
+.pf {
+  display: inline-block;
+  background: #6c043e;
+  clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 7px, 100% calc(100% - 7px), calc(100% - 7px) 100%, 7px 100%, 0 calc(100% - 7px), 0 7px);
+  padding: 3px;
+}
+.pf-inner {
+  display: block;
+  background: #f8f5ef;
+  color: #211815;
+  padding: 5px 14px 6px;
+  clip-path: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.opt-door .wordmark .mark { display: none; }
+.chat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.6);
+  box-shadow: var(--shadow-overlay);
+  overflow: hidden;
+}
+.chat-bar {
+  display: flex; align-items: center;
+  padding: 10px 14px; background: var(--muted); border-bottom: 1px solid var(--border);
+}
+.chat-body { padding: 16px 14px 18px; display: grid; gap: 10px; }
+.chat .bubble { max-width: 92%; }
+.chat .bubble p { margin: 0; font-size: 0.95rem; }
+.chat .bubble-user {
+  margin-left: auto;
+  background: var(--accent);
+  color: var(--foreground);
+  padding: 10px 12px;
+  border-radius: 14px 14px 4px 14px;
+}
+.chat .bubble-agent {
+  background: var(--background);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 4px 14px 14px 14px;
+}
+.chat .choices { margin-top: 10px; }
