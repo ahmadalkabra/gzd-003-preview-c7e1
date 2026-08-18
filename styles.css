@@ -367,3 +367,26 @@ section.block { padding: 56px 0; }
 }
 .foot-short p { margin: 0; }
 .opt-door.v2 .gold-band { display: none; }
+
+.choice.on {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+.move-pic {
+  margin-top: 14px;
+  padding: 12px 14px 12px 16px;
+  border-left: 4px solid var(--primary);
+  background: var(--background);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.move-kicker {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.move-pic p { margin: 0; }
+.move-pic .receipt { margin-top: 8px; }
