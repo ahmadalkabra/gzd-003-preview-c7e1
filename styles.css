@@ -668,3 +668,50 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
   .opt-door.v4.door-b #how.block { padding-bottom: 16px; }
   .opt-door.v4.door-b #chat-b.block { padding-top: 16px; }
 }
+
+.opt-door.v4.door-b .how-rail { display: none; }
+.opt-door.v4.door-b .move-stub {
+  margin: 28px 0 0;
+  max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-overlay);
+  border-radius: 2px 2px 10px 10px;
+  overflow: hidden;
+}
+.opt-door.v4.door-b .stub-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: #e3ad4b;
+  color: #211815;
+}
+.opt-door.v4.door-b .stub-top .g-badge {
+  background: #9b1f1b;
+  color: #f8f5ef;
+}
+.opt-door.v4.door-b .stub-word {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+.opt-door.v4.door-b .stub-row {
+  padding: 20px 22px 18px;
+  border-bottom: 1px dashed var(--border);
+}
+.opt-door.v4.door-b .stub-row h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.opt-door.v4.door-b .stub-row p {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+.opt-door.v4.door-b .stub-end {
+  border-bottom: 0;
+  background: #f8f5ef;
+  padding-bottom: 22px;
+}
