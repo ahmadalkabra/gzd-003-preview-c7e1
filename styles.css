@@ -657,3 +657,14 @@ section.block { padding: 56px 0; }
   }
   .opt-door.v4.door-b .how-num { font-size: 1.9rem; }
 }
+
+html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
+.opt-door.v4.door-b #ask,
+.opt-door.v4.door-b #how,
+.opt-door.v4.door-b #chat-b { scroll-margin-top: 80px; }
+.opt-door.v4.door-b #how.block { padding-bottom: 12px; }
+.opt-door.v4.door-b #chat-b.block { padding-top: 12px; }
+@media (min-width: 880px) {
+  .opt-door.v4.door-b #how.block { padding-bottom: 16px; }
+  .opt-door.v4.door-b #chat-b.block { padding-top: 16px; }
+}
