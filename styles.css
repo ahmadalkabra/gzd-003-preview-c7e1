@@ -715,3 +715,45 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
   background: #f8f5ef;
   padding-bottom: 22px;
 }
+
+.opt-door.v4.door-b .move-stub,
+.opt-door.v4.door-b .how-rail { display: none; }
+.opt-door.v4.door-b .how-band {
+  background: #e3ad4b;
+  color: #211815;
+  padding: 56px 0 64px;
+  scroll-margin-top: 80px;
+}
+.opt-door.v4.door-b .how-band h2 {
+  color: #211815;
+  margin: 0 0 36px;
+}
+.opt-door.v4.door-b .how-acts {
+  display: grid;
+  gap: 32px;
+}
+@media (min-width: 880px) {
+  .opt-door.v4.door-b .how-acts {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+}
+.opt-door.v4.door-b .how-act { background: none; border: 0; padding: 0; box-shadow: none; }
+.opt-door.v4.door-b .how-act h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #211815;
+}
+.opt-door.v4.door-b .how-act p {
+  margin: 0;
+  max-width: 28ch;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #211815;
+}
+.opt-door.v4.door-b #how.block { padding: 0; }
+.opt-door.v4.door-b #chat-b.block { padding-top: 40px; }
