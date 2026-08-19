@@ -439,3 +439,32 @@ section.block { padding: 56px 0; }
   border-radius: 4px 14px 14px 14px;
 }
 .chat .choices { margin-top: 10px; }
+
+.opt-door.v3 .brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--foreground);
+}
+.opt-door.v3 .g-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #9b1f1b; color: #f8f5ef;
+  font-family: var(--font-heading); font-weight: 500; font-size: 1.05rem;
+  line-height: 1;
+}
+.opt-door.v3 .g-name {
+  font-family: var(--font-heading); font-weight: 600; font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+.opt-door.v3 .chat-bar, .opt-door.v3 .term-dots { display: none; }
+.opt-door.v3 .chat { margin-top: 0; }
+.opt-door.v3 .tokyo-line {
+  margin: 28px 0 0;
+  font-family: var(--font-editorial); font-style: italic;
+  font-size: 1.2rem; max-width: 40ch;
+}
+.opt-door.v3 .later {
+  margin: 0 0 10px; max-width: 42ch; font-size: 1.05rem;
+}
+.opt-door.v3 .later.strong { font-weight: 650; }
+.opt-door.v3 .how-card .ico { display: none; }
+.opt-door.v3 .l1 { display: none; }
