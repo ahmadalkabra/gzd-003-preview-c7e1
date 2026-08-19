@@ -479,32 +479,128 @@ section.block { padding: 56px 0; }
 }
 
 /* v4 door tap-throughs (door-a / door-b / door-c). Older pages unchanged. */
-.opt-door.v4 h1 { max-width: none; font-size: 2.125rem; line-height: 1.08; }
+.opt-door.v4 h1 {
+  max-width: none;
+  font-size: 2.125rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
 .opt-door.v4 .h1-line { display: block; }
 .opt-door.v4 .h1-line:last-child { white-space: nowrap; }
 @media (min-width: 880px) { .opt-door.v4 h1 { font-size: 2.625rem; } }
-.opt-door.v4 .lede { margin: 18px 0 0; max-width: 42ch; font-size: 1.125rem; line-height: 1.5; color: var(--foreground); }
+
+.opt-door.v4 .lede {
+  margin: 18px 0 0;
+  max-width: 42ch;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--foreground);
+}
 .opt-door.v4 .chips { margin-top: 20px; }
-.opt-door.v4 .chat-note { color: var(--muted-foreground); font-size: 0.8rem; }
-.opt-door.v4 .chat-ex { max-width: 470px; }
-.opt-door.v4 .section-kicker { display: none; }
-.opt-door.v4 .door-hero { padding: 28px 0 36px; }
-.opt-door.v4 .door-copy + .chat-ex { margin-top: 22px; }
+.opt-door.v4 .chip { background: var(--background); }
+
+.opt-door.v4 .chat {
+  border-radius: 12px;
+}
+.opt-door.v4 .chat-bar { padding: 9px 12px; }
+.opt-door.v4 .term-title { font-size: 0.72rem; letter-spacing: 0.01em; }
 .opt-door.v4 .chat-body { gap: 8px; padding: 12px 12px 14px; }
 .opt-door.v4 .chat .bubble-user,
 .opt-door.v4 .chat .bubble-agent { padding: 8px 12px; }
+.opt-door.v4 .chat .bubble p { font-size: 0.9rem; line-height: 1.4; }
+.opt-door.v4 .chat-ex { max-width: 470px; }
+.opt-door.v4 .chat-note {
+  margin: 8px 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+
+.opt-door.v4 .section-kicker { display: none; }
+.opt-door.v4 .door-hero { padding: 28px 0 32px; display: block; }
+.opt-door.v4 .door-copy + .chat-ex { margin-top: 24px; }
+
+.opt-door.v4 .block { padding: 48px 0; }
+@media (min-width: 880px) { .opt-door.v4 .block { padding: 64px 0; } }
+.opt-door.v4 .how-4 { margin-top: 22px; }
+.opt-door.v4 .how-card { padding: 20px 18px 22px; }
+
+.opt-door.v4 .later-band { padding: 36px 0 48px; }
+.opt-door.v4 .later {
+  margin: 0;
+  max-width: 36ch;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+.opt-door.v4 .later.strong {
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  max-width: 22ch;
+}
+
 .opt-door.v4 .ex-kicker {
   margin: 0 0 14px;
   color: var(--muted-foreground);
   font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
 }
+
 @media (min-width: 880px) {
   .opt-door.v4.door-a .door-hero,
   .opt-door.v4.door-b .door-hero {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 48px 0 56px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 56px;
+    align-items: center;
+    padding: 56px 0 64px;
   }
   .opt-door.v4.door-a .door-copy + .chat-ex,
   .opt-door.v4.door-b .door-copy + .chat-ex { margin-top: 0; }
 }
-.opt-door.v4.door-c .door-hero { display: flex; flex-direction: column; align-items: stretch; max-width: 640px; }
+
+/* C: poster hero — type then a wider screenshot. 2×2 how-it-works. Later band is a panel. */
+.opt-door.v4.door-c .door-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 680px;
+  padding: 32px 0 40px;
+}
 .opt-door.v4.door-c .chat-ex { max-width: 100%; width: 100%; margin-top: 28px; }
+.opt-door.v4.door-c .how-4 { grid-template-columns: 1fr 1fr; }
+@media (min-width: 1040px) { .opt-door.v4.door-c .how-4 { grid-template-columns: 1fr 1fr; } }
+.opt-door.v4.door-c .later-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid #e3ad4b;
+  border-radius: 0 0 calc(var(--radius) * 1.4) calc(var(--radius) * 1.4);
+  box-shadow: var(--shadow-rest);
+  padding: 28px 28px 30px;
+}
+.opt-door.v4.door-c .later-panel .later.strong { max-width: 24ch; }
+
+.opt-door.v4 .how-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+@media (min-width: 880px) {
+  .opt-door.v4 .later-band {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px 48px;
+    align-items: end;
+  }
+  .opt-door.v4 .later.strong { margin-top: 0; }
+}
+
+.opt-door.v4 .phone-br { display: none; }
+.opt-door.v4 .h1-line.nowrap { white-space: nowrap; }
+@media (max-width: 520px) {
+  .opt-door.v4 .phone-br { display: inline; }
+  .opt-door.v4 h1 { font-size: 2.125rem; }
+}
