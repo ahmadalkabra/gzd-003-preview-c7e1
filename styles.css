@@ -455,7 +455,8 @@ section.block { padding: 56px 0; }
   font-family: var(--font-heading); font-weight: 600; font-size: 1.25rem;
   letter-spacing: -0.03em;
 }
-.opt-door.v3 .chat-bar, .opt-door.v3 .term-dots { display: none; }
+.opt-door.v3 .chat-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.opt-door.v3 .term-dots { display: flex; }
 .opt-door.v3 .chat { margin-top: 0; }
 .opt-door.v3 .tokyo-line {
   margin: 28px 0 0;
