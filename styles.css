@@ -468,3 +468,11 @@ section.block { padding: 56px 0; }
 .opt-door.v3 .later.strong { font-weight: 650; }
 .opt-door.v3 .how-card .ico { display: none; }
 .opt-door.v3 .l1 { display: none; }
+
+.opt-door.v3 .chat-ex { margin: 0; }
+.opt-door.v3 .chat-note {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--foreground) 52%, transparent);
+}
