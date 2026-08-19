@@ -604,3 +604,11 @@ section.block { padding: 56px 0; }
   .opt-door.v4 .phone-br { display: inline; }
   .opt-door.v4 h1 { font-size: 2.125rem; }
 }
+
+.opt-door.v4 .value-pair { margin: 16px 0 0; }
+.opt-door.v4 .value-pair .later { max-width: 38ch; }
+.opt-door.v4 .value-pair .later.strong {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  max-width: 22ch;
+}
