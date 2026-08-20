@@ -660,13 +660,10 @@ section.block { padding: 56px 0; }
 
 html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 .opt-door.v4.door-b #ask,
-.opt-door.v4.door-b #how,
-.opt-door.v4.door-b #chat-b { scroll-margin-top: 80px; }
+.opt-door.v4.door-b #how { scroll-margin-top: 80px; }
 .opt-door.v4.door-b #how.block { padding-bottom: 12px; }
-.opt-door.v4.door-b #chat-b.block { padding-top: 12px; }
 @media (min-width: 880px) {
   .opt-door.v4.door-b #how.block { padding-bottom: 16px; }
-  .opt-door.v4.door-b #chat-b.block { padding-top: 16px; }
 }
 
 .opt-door.v4.door-b .how-rail { display: none; }
@@ -815,7 +812,6 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 }
 
 .opt-door.v4.door-b #how.block { padding: 0; }
-.opt-door.v4.door-b #chat-b.block { padding-top: 40px; }
 
 /* Door B: live four-card How it works. Hide leftover treatments. */
 .opt-door.v4.door-b .how-band,
@@ -827,7 +823,6 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 .opt-door.v4.door-b .move-sheet { display: none; }
 
 .opt-door.v4.door-b #how { scroll-margin-top: 80px; }
-.opt-door.v4.door-b #chat-b.block { padding-top: 40px; }
 
 .opt-door.v4.door-b .how-live {
   background: #f8f5ef;
