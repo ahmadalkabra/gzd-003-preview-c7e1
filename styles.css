@@ -1189,7 +1189,7 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 }
 .opt-door.v4.door-b .sim-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 4px;
 }
 .opt-door.v4.door-b .sim-tab {
