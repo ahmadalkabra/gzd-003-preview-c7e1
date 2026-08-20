@@ -1080,3 +1080,85 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
   color: var(--muted-foreground);
 }
 
+/* door-b wafi AC: jump, checks object, kicker on terminal */
+.opt-door.v4.door-b .hero-proof,
+.opt-door.v4.door-b .brand-field {
+  display: none !important;
+}
+.opt-door.v4.door-b .hero-jump {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 28px;
+  padding: 0;
+  color: #211815;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.opt-door.v4.door-b .hero-jump:hover,
+.opt-door.v4.door-b .hero-jump:focus {
+  color: #211815;
+  background: none;
+}
+.opt-door.v4.door-b .checks {
+  margin-top: 36px;
+  max-width: 22em;
+}
+.opt-door.v4.door-b .checks h2 {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #211815;
+  text-align: left;
+}
+.opt-door.v4.door-b .checks p {
+  margin: 0 0 10px;
+  max-width: none;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #211815;
+}
+.opt-door.v4.door-b .checks .checks-close {
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+.opt-door.v4.door-b .how-kicker {
+  margin: 0 auto 20px;
+  max-width: 640px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: #211815;
+}
+@media (min-width: 880px) {
+  .opt-door.v4.door-b .door-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 22em) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+    padding: 56px 0 64px;
+  }
+  .opt-door.v4.door-b .checks {
+    margin-top: 8px;
+    max-width: none;
+  }
+  .opt-door.v4.door-b .brand-field {
+    display: none !important;
+  }
+}
