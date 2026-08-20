@@ -816,3 +816,112 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 
 .opt-door.v4.door-b #how.block { padding: 0; }
 .opt-door.v4.door-b #chat-b.block { padding-top: 40px; }
+
+/* Door B: live four-card How it works. Hide leftover treatments. */
+.opt-door.v4.door-b .how-band,
+.opt-door.v4.door-b .how-acts,
+.opt-door.v4.door-b .how-act,
+.opt-door.v4.door-b .how-rail,
+.opt-door.v4.door-b .move-stub,
+.opt-door.v4.door-b .how-move,
+.opt-door.v4.door-b .move-sheet { display: none; }
+
+.opt-door.v4.door-b #how { scroll-margin-top: 80px; }
+.opt-door.v4.door-b #chat-b.block { padding-top: 40px; }
+
+.opt-door.v4.door-b .how-live {
+  background: #f8f5ef;
+  color: #211815;
+  padding: 64px 0;
+}
+@media (min-width: 640px) {
+  .opt-door.v4.door-b .how-live { padding: 96px 0; }
+}
+
+.opt-door.v4.door-b .how-live h2 {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw + 1rem, 1.875rem);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #211815;
+}
+
+.opt-door.v4.door-b .how-live-grid {
+  list-style: none;
+  margin: 48px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .opt-door.v4.door-b .how-live-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .opt-door.v4.door-b .how-live-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.opt-door.v4.door-b .how-live-grid > li {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.opt-door.v4.door-b .how-live-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dfd5d1;
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+@media (min-width: 640px) {
+  .opt-door.v4.door-b .how-live-card { padding: 32px; }
+}
+
+.opt-door.v4.door-b .how-live-card:hover {
+  border-color: color-mix(in srgb, #9b1f1b 40%, transparent);
+  box-shadow: 0 4px 12px -2px oklch(0.22 0.015 45 / 0.08);
+}
+
+.opt-door.v4.door-b .how-live-mark {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  color: #9b1f1b;
+}
+.opt-door.v4.door-b .how-live-mark svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.opt-door.v4.door-b .how-live-card h3 {
+  margin: 16px 0 0;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #211815;
+}
+
+.opt-door.v4.door-b .how-live-card p {
+  margin: 8px 0 0;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: #5b5350;
+}
