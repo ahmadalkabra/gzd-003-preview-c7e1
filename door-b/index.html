@@ -93,7 +93,7 @@
 (function () {
   var root = document.getElementById("sim");
   if (!root) return;
-  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  var tabs = Array.prototype.slice.call(root.querySelectorAll("[role=tab]"));
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mobile = window.matchMedia("(max-width: 767px)").matches;
   var timers = [];
@@ -113,9 +113,7 @@
     if (reduced || mobile) { setDone(panel, true); return; }
     var step = Math.floor(total / (ticks.length + 1));
     for (var i = 0; i < ticks.length; i++) {
-      (function (idx) {
-        later(function () { ticks[idx].classList.add("is-on"); }, step * (idx + 1));
-      })(i);
+      (function (idx) { later(function () { ticks[idx].classList.add("is-on"); }, step * (idx + 1)); })(i);
     }
     later(function () { setDone(panel, true); }, total);
   }
@@ -127,7 +125,6 @@
       var p = panelFor(t);
       if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
     });
-    tab.focus();
     play(panelFor(tab), animate ? 2800 : 4000);
   }
   tabs.forEach(function (tab) {
@@ -141,74 +138,13 @@
     });
   });
   root.querySelectorAll(".sim-replay").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var panel = btn.closest(".sim-panel");
-      play(panel, 4000);
-    });
+    btn.addEventListener("click", function () { play(btn.closest(".sim-panel"), 4000); });
   });
-  play(panelFor(tabs[0]), 4000);
+  var start = tabs[0];
+  for (var s = 0; s < tabs.length; s++) { if (tabs[s].getAttribute("aria-selected") === "true") start = tabs[s]; }
+  play(panelFor(start), 4000);
 })();
 </script>
 
-<script>
-(function () {
-  var root = document.getElementById("sim");
-  if (!root) return;
-  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var mobile = window.matchMedia("(max-width: 767px)").matches;
-  var timers = [];
-  function clearTimers() { timers.forEach(function (id) { clearTimeout(id); }); timers = []; }
-  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
-  function panelFor(tab) { return document.getElementById(tab.getAttribute("aria-controls")); }
-  function setDone(panel, done) {
-    var ticks = panel.querySelectorAll(".sim-tick");
-    for (var i = 0; i < ticks.length; i++) ticks[i].classList.toggle("is-on", done);
-    panel.classList.toggle("is-done", done);
-    panel.classList.toggle("is-playing", !done);
-  }
-  function play(panel, total) {
-    clearTimers();
-    var ticks = panel.querySelectorAll(".sim-tick");
-    setDone(panel, false);
-    if (reduced || mobile) { setDone(panel, true); return; }
-    var step = Math.floor(total / (ticks.length + 1));
-    for (var i = 0; i < ticks.length; i++) {
-      (function (idx) {
-        later(function () { ticks[idx].classList.add("is-on"); }, step * (idx + 1));
-      })(i);
-    }
-    later(function () { setDone(panel, true); }, total);
-  }
-  function selectTab(tab, animate) {
-    tabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute("aria-selected", on ? "true" : "false");
-      t.tabIndex = on ? 0 : -1;
-      var p = panelFor(t);
-      if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
-    });
-    tab.focus();
-    play(panelFor(tab), animate ? 2800 : 4000);
-  }
-  tabs.forEach(function (tab) {
-    tab.addEventListener("click", function () { selectTab(tab, true); });
-    tab.addEventListener("keydown", function (e) {
-      var i = tabs.indexOf(tab);
-      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-        e.preventDefault();
-        selectTab(tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length], true);
-      }
-    });
-  });
-  root.querySelectorAll(".sim-replay").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var panel = btn.closest(".sim-panel");
-      play(panel, 4000);
-    });
-  });
-  play(panelFor(tabs[0]), 4000);
-})();
-</script>
 </body>
 </html>
