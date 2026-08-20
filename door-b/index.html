@@ -48,20 +48,30 @@
   <section class="how-term" id="how" aria-labelledby="how-h2">
     <div class="wrap">
       <h2 id="how-h2">How it works</h2>
-      <p class="how-kicker">Four people. Same trip. Two bookings of two.</p>
-      <figure class="chat-ex how-term-ex">
-        <div class="chat" aria-label="How it works">
-          <div class="chat-bar">
-            <span class="term-dots" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></span>
-            <span class="term-title">Gazdura</span>
-          </div>
-          <div class="chat-body">
-            <div class="bubble bubble-user"><p>We are four. Same trip to London. Global companion award or the $99 companion fare?</p></div>
-            <div class="bubble bubble-agent"><p>Use the global companion award for London. The $99 fare is North America only. Next check: the same comparison for the second booking of two.</p></div>
+      <div id="sim" class="how-window">
+        <div class="sim-chrome">
+          <p class="sim-context">Atmos Rewards · Gold status</p>
+          <div class="sim-tabs" role="tablist" aria-label="Examples">
+            <button type="button" class="sim-tab" role="tab" id="tab-qatar" aria-controls="panel-qatar" aria-selected="true" tabindex="0">Qatar in Doha</button>
+            <button type="button" class="sim-tab" role="tab" id="tab-tokyo" aria-controls="panel-tokyo" aria-selected="false" tabindex="-1">Tokyo on JAL</button>
           </div>
         </div>
-        <figcaption class="chat-note">Private preview. A picture of an ask, not a live product.</figcaption>
-      </figure>
+      <div class="sim-panel" id="panel-qatar" role="tabpanel" aria-labelledby="tab-qatar">
+        <p class="sim-q">I have Atmos Gold and I’m flying Qatar Airways using Atmos points. What does that get me?</p>
+        <ul class="sim-ticks" aria-label="Checking"><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Award earning</span></li><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Status mapping</span></li><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Airport benefits</span></li><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Lounge access</span></li></ul>
+        <p class="sim-answer">More than an award seat. The trip still earns Atmos status points, while Atmos Gold maps to oneworld Sapphire—giving you priority check-in, boarding and baggage handling, plus access for you and one guest to Qatar Airways’ Gold Lounge South and Platinum &amp; Gold Lounge North in Doha, even in Economy. Add your Atmos number to the booking so your benefits are recognized.</p>
+        <p class="sim-labels"><span class="sim-lab">Earns Atmos status points</span><span class="sim-lab">oneworld Sapphire</span><span class="sim-lab">Priority airport benefits</span><span class="sim-lab">Gold Lounge South</span><span class="sim-lab">Platinum &amp; Gold Lounge North</span></p>
+        <button type="button" class="sim-replay">Replay</button>
+      </div>
+      <div class="sim-panel" id="panel-tokyo" role="tabpanel" aria-labelledby="tab-tokyo" hidden>
+        <p class="sim-q">I use Atmos as my main program. Can I use my points for a Japan Airlines trip from Seattle to Tokyo—and still make progress toward status?</p>
+        <ul class="sim-ticks" aria-label="Checking"><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Partner award access</span></li><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Award availability</span></li><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>Status-point earning</span></li><li class="sim-tick"><span class="sim-tick-mark" aria-hidden="true"></span><span>oneworld benefits</span></li></ul>
+        <p class="sim-answer">Yes. When Japan Airlines award space is available, you can book the Tokyo trip with Atmos points. The award still earns Atmos status points, and any eligible oneworld benefits attached to your Atmos status travel with you on JAL.</p>
+        <p class="sim-labels"><span class="sim-lab">Book JAL with Atmos points</span><span class="sim-lab">Earns Atmos status points</span><span class="sim-lab">Partner benefits recognized</span></p>
+        <button type="button" class="sim-replay">Replay</button>
+      </div>
+      </div>
+      <p class="chat-note">Private preview. A picture of an ask, not a live product.</p>
     </div>
   </section>
 </main>
@@ -78,5 +88,127 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var root = document.getElementById("sim");
+  if (!root) return;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobile = window.matchMedia("(max-width: 767px)").matches;
+  var timers = [];
+  function clearTimers() { timers.forEach(function (id) { clearTimeout(id); }); timers = []; }
+  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+  function panelFor(tab) { return document.getElementById(tab.getAttribute("aria-controls")); }
+  function setDone(panel, done) {
+    var ticks = panel.querySelectorAll(".sim-tick");
+    for (var i = 0; i < ticks.length; i++) ticks[i].classList.toggle("is-on", done);
+    panel.classList.toggle("is-done", done);
+    panel.classList.toggle("is-playing", !done);
+  }
+  function play(panel, total) {
+    clearTimers();
+    var ticks = panel.querySelectorAll(".sim-tick");
+    setDone(panel, false);
+    if (reduced || mobile) { setDone(panel, true); return; }
+    var step = Math.floor(total / (ticks.length + 1));
+    for (var i = 0; i < ticks.length; i++) {
+      (function (idx) {
+        later(function () { ticks[idx].classList.add("is-on"); }, step * (idx + 1));
+      })(i);
+    }
+    later(function () { setDone(panel, true); }, total);
+  }
+  function selectTab(tab, animate) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      var p = panelFor(t);
+      if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
+    });
+    tab.focus();
+    play(panelFor(tab), animate ? 2800 : 4000);
+  }
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () { selectTab(tab, true); });
+    tab.addEventListener("keydown", function (e) {
+      var i = tabs.indexOf(tab);
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        selectTab(tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length], true);
+      }
+    });
+  });
+  root.querySelectorAll(".sim-replay").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var panel = btn.closest(".sim-panel");
+      play(panel, 4000);
+    });
+  });
+  play(panelFor(tabs[0]), 4000);
+})();
+</script>
+
+<script>
+(function () {
+  var root = document.getElementById("sim");
+  if (!root) return;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobile = window.matchMedia("(max-width: 767px)").matches;
+  var timers = [];
+  function clearTimers() { timers.forEach(function (id) { clearTimeout(id); }); timers = []; }
+  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+  function panelFor(tab) { return document.getElementById(tab.getAttribute("aria-controls")); }
+  function setDone(panel, done) {
+    var ticks = panel.querySelectorAll(".sim-tick");
+    for (var i = 0; i < ticks.length; i++) ticks[i].classList.toggle("is-on", done);
+    panel.classList.toggle("is-done", done);
+    panel.classList.toggle("is-playing", !done);
+  }
+  function play(panel, total) {
+    clearTimers();
+    var ticks = panel.querySelectorAll(".sim-tick");
+    setDone(panel, false);
+    if (reduced || mobile) { setDone(panel, true); return; }
+    var step = Math.floor(total / (ticks.length + 1));
+    for (var i = 0; i < ticks.length; i++) {
+      (function (idx) {
+        later(function () { ticks[idx].classList.add("is-on"); }, step * (idx + 1));
+      })(i);
+    }
+    later(function () { setDone(panel, true); }, total);
+  }
+  function selectTab(tab, animate) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      var p = panelFor(t);
+      if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
+    });
+    tab.focus();
+    play(panelFor(tab), animate ? 2800 : 4000);
+  }
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () { selectTab(tab, true); });
+    tab.addEventListener("keydown", function (e) {
+      var i = tabs.indexOf(tab);
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        selectTab(tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length], true);
+      }
+    });
+  });
+  root.querySelectorAll(".sim-replay").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var panel = btn.closest(".sim-panel");
+      play(panel, 4000);
+    });
+  });
+  play(panelFor(tabs[0]), 4000);
+})();
+</script>
 </body>
 </html>
