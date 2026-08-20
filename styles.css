@@ -822,7 +822,9 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 .opt-door.v4.door-b .how-move,
 .opt-door.v4.door-b .move-sheet,
 .opt-door.v4.door-b .how-rail,
-.opt-door.v4.door-b .move-stub { display: none; }
+.opt-door.v4.door-b .move-stub,
+.opt-door.v4.door-b .how-field-sec,
+.opt-door.v4.door-b .how-field { display: none; }
 
 .opt-door.v4.door-b #how { scroll-margin-top: 80px; }
 
@@ -870,4 +872,29 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
 }
 @media (min-width: 640px) {
   .opt-door.v4.door-b .how-field p { max-width: 36ch; }
+}
+
+
+.opt-door.v4.door-b .how-term {
+  background: #f8f5ef;
+  color: #211815;
+  padding: 48px 0 64px;
+}
+@media (min-width: 640px) {
+  .opt-door.v4.door-b .how-term { padding: 64px 0 96px; }
+}
+.opt-door.v4.door-b .how-term h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw + 1rem, 1.875rem);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #211815;
+}
+.opt-door.v4.door-b .how-term-ex {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
