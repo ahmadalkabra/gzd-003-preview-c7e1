@@ -898,3 +898,185 @@ html:has(.opt-door.v4.door-b) { scroll-padding-top: 80px; }
   margin-left: auto;
   margin-right: auto;
 }
+
+/* door-b wafi recut: type-led hero, Voice thread, private preview */
+.opt-door.v4.door-b {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-heading: Georgia, ui-serif, serif;
+  --font-editorial: Georgia, ui-serif, serif;
+}
+
+.opt-door.v4.door-b #ask,
+.opt-door.v4.door-b .ex-kicker,
+.opt-door.v4.door-b .door-copy + .chat-ex {
+  display: none !important;
+}
+
+.opt-door.v4.door-b .door-hero {
+  display: block;
+  padding: 40px 0 48px;
+}
+.opt-door.v4.door-b .door-copy {
+  max-width: 22em;
+}
+.opt-door.v4.door-b .brand-field {
+  display: none;
+}
+
+.opt-door.v4.door-b h1 {
+  max-width: none;
+  font-size: 2.125rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.opt-door.v4.door-b .h1-line.nowrap,
+.opt-door.v4.door-b .h1-line:last-child {
+  white-space: normal;
+}
+
+.opt-door.v4.door-b .lede {
+  margin: 20px 0 0;
+  max-width: none;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.opt-door.v4.door-b .value-pair {
+  margin: 20px 0 0;
+}
+.opt-door.v4.door-b .value-pair .later {
+  margin: 0;
+  max-width: none;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+.opt-door.v4.door-b .value-pair .later.strong {
+  margin-top: 8px;
+  max-width: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+.opt-door.v4.door-b .chips {
+  margin-top: 24px;
+}
+.opt-door.v4.door-b .hero-proof {
+  display: block;
+  margin: 24px 0 0;
+  max-width: none;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+@media (min-width: 880px) {
+  .opt-door.v4.door-b .door-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 22em) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+    padding: 72px 0 88px;
+  }
+  .opt-door.v4.door-b h1 {
+    font-size: 3.5rem;
+  }
+  .opt-door.v4.door-b .brand-field {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: none;
+  }
+  .opt-door.v4.door-b .brand-field .g-badge {
+    width: 7.5rem;
+    height: 7.5rem;
+    font-size: 3.25rem;
+    opacity: 0.18;
+  }
+}
+
+@media (min-width: 960px) {
+  .opt-door.v4.door-b .door-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 22em) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+    padding: 72px 0 88px;
+  }
+}
+
+/* Chat/body >= 16px at 360. Override v4 0.9rem bubbles. */
+.opt-door.v4.door-b .chat .bubble p {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.opt-door.v4.door-b .chat-body {
+  gap: 10px;
+  padding: 14px;
+}
+.opt-door.v4.door-b .chat .bubble-user,
+.opt-door.v4.door-b .chat .bubble-agent {
+  padding: 10px 14px;
+}
+
+/* Hits >= 44px */
+.opt-door.v4.door-b .skip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  top: -80px;
+}
+.opt-door.v4.door-b .skip:focus {
+  top: 12px;
+}
+.opt-door.v4.door-b .brand {
+  min-height: 44px;
+}
+.opt-door.v4.door-b .nav-links a,
+.opt-door.v4.door-b .legal a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 12px;
+}
+
+/* How it works: #how.how-term, one h2, one .chat max 640 centered */
+.opt-door.v4.door-b #how.how-term {
+  background: #f8f5ef;
+  color: #211815;
+  padding: 48px 0 64px;
+}
+@media (min-width: 640px) {
+  .opt-door.v4.door-b #how.how-term {
+    padding: 64px 0 96px;
+  }
+}
+.opt-door.v4.door-b #how.how-term h2 {
+  margin: 0 0 28px;
+  text-align: center;
+}
+.opt-door.v4.door-b #how.how-term .how-term-ex,
+.opt-door.v4.door-b #how.how-term .chat-ex,
+.opt-door.v4.door-b #how.how-term .chat {
+  max-width: 640px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.opt-door.v4.door-b #how.how-term .source {
+  margin: 12px 0 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.opt-door.v4.door-b #how.how-term .chat-note {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
